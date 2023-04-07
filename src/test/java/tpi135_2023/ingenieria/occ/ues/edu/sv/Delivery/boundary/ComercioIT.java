@@ -61,13 +61,13 @@ public class ComercioIT {
             .withDatabaseName ("delivery")
             .withPassword("1234")
             .withUsername("postgres")
-            .withInitScript("delivery.sql")
+            .withInitScript("DeliveryDDL.sql")
             .withNetwork(red)
             .withNetworkAliases("db")                    
             ;
     
     @Container 
-    GenericContainer payara = new GenericContainer ("payara/pg6.2023.2")
+    GenericContainer payara = new GenericContainer ("payara/full_pg6.2023.2")
             .withEnv("POSTGRES_USER", "postgres")
             .withEnv("POSTGRES_PASSWORD", "1234")
             .withEnv("POSTGRES_PORT", "5432")
@@ -121,17 +121,17 @@ public class ComercioIT {
     public void findByIdTest() {
         System.out.println("Comercio - findById");
         Assertions.assertTrue(payara.isRunning());
-//        Assertions.assertNotNull(idComercioCreado);
-//        int esperado = 200;
-//        Response respuesta = target.path("/comercio/{id}").resolveTemplate("id", idComercioCreado)
-//                .request(MediaType.APPLICATION_JSON).get();
-//        Assertions.assertEquals(esperado, respuesta.getStatus());
-//        Comercio encontrado = respuesta.readEntity(Comercio.class);
-//        Assertions.assertEquals(idComercioCreado, encontrado.getIdComercio());
-//        //excepciones
-//        respuesta = target.path("/comercio/{id}").resolveTemplate("id", 999)
-//                .request(MediaType.APPLICATION_JSON).get();
-//        Assertions.assertEquals(404, respuesta.getStatus());
+        Assertions.assertNotNull(idComercioCreado);
+        int esperado = 200;
+        Response respuesta = target.path("/comercio/{id}").resolveTemplate("id", idComercioCreado)
+                .request(MediaType.APPLICATION_JSON).get();
+        Assertions.assertEquals(esperado, respuesta.getStatus());
+        Comercio encontrado = respuesta.readEntity(Comercio.class);
+        Assertions.assertEquals(idComercioCreado, encontrado.getIdComercio());
+        //excepciones
+        respuesta = target.path("/comercio/{id}").resolveTemplate("id", 999)
+                .request(MediaType.APPLICATION_JSON).get();
+        Assertions.assertEquals(404, respuesta.getStatus());
         //Assertions.assertTrue(respuesta.getHeaders().containsKey(RestResourcePattern.ID_NOT_FOUND));
     }
 
