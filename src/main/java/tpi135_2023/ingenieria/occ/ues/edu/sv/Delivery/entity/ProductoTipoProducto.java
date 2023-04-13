@@ -6,20 +6,12 @@ package tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
+import jakarta.persistence.*;
 
 /**
  *
- * @author CENTRA
+ * @author figueroa
  */
 @Entity
 @Table(name = "producto_tipo_producto")
@@ -119,7 +111,7 @@ public class ProductoTipoProducto implements Serializable {
 
     @Override
     public String toString() {
-        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.resources.ProductoTipoProducto[ productoTipoProductoPK=" + productoTipoProductoPK + " ]";
+        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.ProductoTipoProducto[ productoTipoProductoPK=" + productoTipoProductoPK + " ]";
     }
     
 }

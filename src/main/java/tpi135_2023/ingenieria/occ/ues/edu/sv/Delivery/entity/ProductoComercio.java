@@ -5,23 +5,14 @@
 package tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import java.util.List;
+
+import jakarta.persistence.*;
 
 /**
  *
- * @author CENTRA
+ * @author figueroa
  */
 @Entity
 @Table(name = "producto_comercio")
@@ -48,7 +39,7 @@ public class ProductoComercio implements Serializable {
     @ManyToOne(optional = false)
     private Producto producto;
     @OneToMany(mappedBy = "productoComercio")
-    private Collection<MenuComercio> menuComercioCollection;
+    private List<MenuComercio> menuComercioList;
 
     public ProductoComercio() {
     }
@@ -101,12 +92,12 @@ public class ProductoComercio implements Serializable {
         this.producto = producto;
     }
 
-    public Collection<MenuComercio> getMenuComercioCollection() {
-        return menuComercioCollection;
+    public List<MenuComercio> getMenuComercioList() {
+        return menuComercioList;
     }
 
-    public void setMenuComercioCollection(Collection<MenuComercio> menuComercioCollection) {
-        this.menuComercioCollection = menuComercioCollection;
+    public void setMenuComercioList(List<MenuComercio> menuComercioList) {
+        this.menuComercioList = menuComercioList;
     }
 
     @Override
@@ -131,7 +122,7 @@ public class ProductoComercio implements Serializable {
 
     @Override
     public String toString() {
-        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.resources.ProductoComercio[ productoComercioPK=" + productoComercioPK + " ]";
+        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.ProductoComercio[ productoComercioPK=" + productoComercioPK + " ]";
     }
     
 }

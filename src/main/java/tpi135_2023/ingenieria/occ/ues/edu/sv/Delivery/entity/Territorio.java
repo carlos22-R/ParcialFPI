@@ -5,23 +5,13 @@
 package tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity;
 
 import java.io.Serializable;
-import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import java.util.List;
+
+import jakarta.persistence.*;
 
 /**
  *
- * @author CENTRA
+ * @author figueroa
  */
 @Entity
 @Table(name = "territorio")
@@ -46,9 +36,9 @@ public class Territorio implements Serializable {
     @Column(name = "hijos_obligatorios")
     private Integer hijosObligatorios;
     @OneToMany(mappedBy = "idTerritorio")
-    private Collection<Direccion> direccionCollection;
+    private List<Direccion> direccionList;
     @OneToMany(mappedBy = "idTerritorioPadre")
-    private Collection<Territorio> territorioCollection;
+    private List<Territorio> territorioList;
     @JoinColumn(name = "id_territorio_padre", referencedColumnName = "id_territorio")
     @ManyToOne
     private Territorio idTerritorioPadre;
@@ -92,20 +82,20 @@ public class Territorio implements Serializable {
         this.hijosObligatorios = hijosObligatorios;
     }
 
-    public Collection<Direccion> getDireccionCollection() {
-        return direccionCollection;
+    public List<Direccion> getDireccionList() {
+        return direccionList;
     }
 
-    public void setDireccionCollection(Collection<Direccion> direccionCollection) {
-        this.direccionCollection = direccionCollection;
+    public void setDireccionList(List<Direccion> direccionList) {
+        this.direccionList = direccionList;
     }
 
-    public Collection<Territorio> getTerritorioCollection() {
-        return territorioCollection;
+    public List<Territorio> getTerritorioList() {
+        return territorioList;
     }
 
-    public void setTerritorioCollection(Collection<Territorio> territorioCollection) {
-        this.territorioCollection = territorioCollection;
+    public void setTerritorioList(List<Territorio> territorioList) {
+        this.territorioList = territorioList;
     }
 
     public Territorio getIdTerritorioPadre() {
@@ -138,7 +128,7 @@ public class Territorio implements Serializable {
 
     @Override
     public String toString() {
-        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.resources.Territorio[ idTerritorio=" + idTerritorio + " ]";
+        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.Territorio[ idTerritorio=" + idTerritorio + " ]";
     }
     
 }

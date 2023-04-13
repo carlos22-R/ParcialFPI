@@ -6,25 +6,11 @@ package tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
+import java.util.List;
+import jakarta.persistence.*;
 /**
  *
- * @author CENTRA
+ * @author figueroa
  */
 @Entity
 @Table(name = "menu_comercio")
@@ -50,7 +36,7 @@ public class MenuComercio implements Serializable {
     @Column(name = "precio_base")
     private BigDecimal precioBase;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "menuComercio")
-    private Collection<OrdenDetalle> ordenDetalleCollection;
+    private List<OrdenDetalle> ordenDetalleList;
     @JoinColumns({
         @JoinColumn(name = "id_comercio", referencedColumnName = "id_comercio"),
         @JoinColumn(name = "id_producto", referencedColumnName = "id_producto")})
@@ -96,12 +82,12 @@ public class MenuComercio implements Serializable {
         this.precioBase = precioBase;
     }
 
-    public Collection<OrdenDetalle> getOrdenDetalleCollection() {
-        return ordenDetalleCollection;
+    public List<OrdenDetalle> getOrdenDetalleList() {
+        return ordenDetalleList;
     }
 
-    public void setOrdenDetalleCollection(Collection<OrdenDetalle> ordenDetalleCollection) {
-        this.ordenDetalleCollection = ordenDetalleCollection;
+    public void setOrdenDetalleList(List<OrdenDetalle> ordenDetalleList) {
+        this.ordenDetalleList = ordenDetalleList;
     }
 
     public ProductoComercio getProductoComercio() {
@@ -134,7 +120,7 @@ public class MenuComercio implements Serializable {
 
     @Override
     public String toString() {
-        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.resources.MenuComercio[ idMenu=" + idMenu + " ]";
+        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.MenuComercio[ idMenu=" + idMenu + " ]";
     }
     
 }

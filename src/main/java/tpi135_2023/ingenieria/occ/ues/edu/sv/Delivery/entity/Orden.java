@@ -6,27 +6,13 @@ package tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity;
 
 import java.io.Serializable;
 import java.math.BigInteger;
-import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import java.util.List;
+import jakarta.persistence.*;
 
 /**
  *
- * @author CENTRA
+ * @author figueroa
  */
 @Entity
 @Table(name = "orden")
@@ -52,13 +38,13 @@ public class Orden implements Serializable {
     @Column(name = "id_direccion")
     private BigInteger idDireccion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "orden")
-    private Collection<OrdenDetalle> ordenDetalleCollection;
+    private List<OrdenDetalle> ordenDetalleList;
     @OneToMany(mappedBy = "idOrden")
-    private Collection<Factura> facturaCollection;
+    private List<Factura> facturaList;
     @OneToMany(mappedBy = "idOrden")
-    private Collection<OrdenEstado> ordenEstadoCollection;
+    private List<OrdenEstado> ordenEstadoList;
     @OneToMany(mappedBy = "idOrden")
-    private Collection<Entrega> entregaCollection;
+    private List<Entrega> entregaList;
     @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
     @ManyToOne
     private Cliente idCliente;
@@ -105,36 +91,36 @@ public class Orden implements Serializable {
         this.idDireccion = idDireccion;
     }
 
-    public Collection<OrdenDetalle> getOrdenDetalleCollection() {
-        return ordenDetalleCollection;
+    public List<OrdenDetalle> getOrdenDetalleList() {
+        return ordenDetalleList;
     }
 
-    public void setOrdenDetalleCollection(Collection<OrdenDetalle> ordenDetalleCollection) {
-        this.ordenDetalleCollection = ordenDetalleCollection;
+    public void setOrdenDetalleList(List<OrdenDetalle> ordenDetalleList) {
+        this.ordenDetalleList = ordenDetalleList;
     }
 
-    public Collection<Factura> getFacturaCollection() {
-        return facturaCollection;
+    public List<Factura> getFacturaList() {
+        return facturaList;
     }
 
-    public void setFacturaCollection(Collection<Factura> facturaCollection) {
-        this.facturaCollection = facturaCollection;
+    public void setFacturaList(List<Factura> facturaList) {
+        this.facturaList = facturaList;
     }
 
-    public Collection<OrdenEstado> getOrdenEstadoCollection() {
-        return ordenEstadoCollection;
+    public List<OrdenEstado> getOrdenEstadoList() {
+        return ordenEstadoList;
     }
 
-    public void setOrdenEstadoCollection(Collection<OrdenEstado> ordenEstadoCollection) {
-        this.ordenEstadoCollection = ordenEstadoCollection;
+    public void setOrdenEstadoList(List<OrdenEstado> ordenEstadoList) {
+        this.ordenEstadoList = ordenEstadoList;
     }
 
-    public Collection<Entrega> getEntregaCollection() {
-        return entregaCollection;
+    public List<Entrega> getEntregaList() {
+        return entregaList;
     }
 
-    public void setEntregaCollection(Collection<Entrega> entregaCollection) {
-        this.entregaCollection = entregaCollection;
+    public void setEntregaList(List<Entrega> entregaList) {
+        this.entregaList = entregaList;
     }
 
     public Cliente getIdCliente() {
@@ -175,7 +161,7 @@ public class Orden implements Serializable {
 
     @Override
     public String toString() {
-        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.resources.Orden[ idOrden=" + idOrden + " ]";
+        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.Orden[ idOrden=" + idOrden + " ]";
     }
     
 }

@@ -6,18 +6,12 @@ package tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+
+import jakarta.persistence.*;
 
 /**
  *
- * @author CENTRA
+ * @author figueroa
  */
 @Entity
 @Table(name = "orden_detalle")
@@ -128,7 +122,7 @@ public class OrdenDetalle implements Serializable {
 
     @Override
     public String toString() {
-        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.resources.OrdenDetalle[ ordenDetallePK=" + ordenDetallePK + " ]";
+        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.OrdenDetalle[ ordenDetallePK=" + ordenDetallePK + " ]";
     }
     
 }

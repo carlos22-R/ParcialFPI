@@ -5,13 +5,12 @@
 package tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+
+import jakarta.persistence.*;
 
 /**
  *
- * @author CENTRA
+ * @author figueroa
  */
 @Embeddable
 public class OrdenDetallePK implements Serializable {
@@ -73,7 +72,7 @@ public class OrdenDetallePK implements Serializable {
 
     @Override
     public String toString() {
-        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.resources.OrdenDetallePK[ idOrden=" + idOrden + ", idMenu=" + idMenu + " ]";
+        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.OrdenDetallePK[ idOrden=" + idOrden + ", idMenu=" + idMenu + " ]";
     }
     
 }

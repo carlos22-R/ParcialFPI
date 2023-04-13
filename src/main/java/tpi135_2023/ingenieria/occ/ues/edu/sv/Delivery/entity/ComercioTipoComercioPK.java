@@ -5,13 +5,12 @@
 package tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+
+import jakarta.persistence.*;
 
 /**
  *
- * @author CENTRA
+ * @author figueroa
  */
 @Embeddable
 public class ComercioTipoComercioPK implements Serializable {
@@ -73,7 +72,7 @@ public class ComercioTipoComercioPK implements Serializable {
 
     @Override
     public String toString() {
-        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.resources.ComercioTipoComercioPK[ idComercio=" + idComercio + ", idTipoComercio=" + idTipoComercio + " ]";
+        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.ComercioTipoComercioPK[ idComercio=" + idComercio + ", idTipoComercio=" + idTipoComercio + " ]";
     }
     
 }

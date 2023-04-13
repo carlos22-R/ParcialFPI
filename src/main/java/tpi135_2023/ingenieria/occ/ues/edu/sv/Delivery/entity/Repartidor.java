@@ -5,24 +5,14 @@
 package tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import java.util.List;
+
+import jakarta.persistence.*;
 
 /**
  *
- * @author CENTRA
+ * @author figueroa
  */
 @Entity
 @Table(name = "repartidor")
@@ -57,7 +47,7 @@ public class Repartidor implements Serializable {
     @Column(name = "observaciones")
     private String observaciones;
     @OneToMany(mappedBy = "idRepartidor")
-    private Collection<Entrega> entregaCollection;
+    private List<Entrega> entregaList;
 
     public Repartidor() {
     }
@@ -122,12 +112,12 @@ public class Repartidor implements Serializable {
         this.observaciones = observaciones;
     }
 
-    public Collection<Entrega> getEntregaCollection() {
-        return entregaCollection;
+    public List<Entrega> getEntregaList() {
+        return entregaList;
     }
 
-    public void setEntregaCollection(Collection<Entrega> entregaCollection) {
-        this.entregaCollection = entregaCollection;
+    public void setEntregaList(List<Entrega> entregaList) {
+        this.entregaList = entregaList;
     }
 
     @Override
@@ -152,7 +142,7 @@ public class Repartidor implements Serializable {
 
     @Override
     public String toString() {
-        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.resources.Repartidor[ idRepartidor=" + idRepartidor + " ]";
+        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.Repartidor[ idRepartidor=" + idRepartidor + " ]";
     }
     
 }

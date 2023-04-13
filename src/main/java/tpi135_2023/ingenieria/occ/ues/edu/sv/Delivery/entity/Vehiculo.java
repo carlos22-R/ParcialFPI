@@ -5,21 +5,13 @@
 package tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity;
 
 import java.io.Serializable;
-import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import java.util.List;
+
+import jakarta.persistence.*;
 
 /**
  *
- * @author CENTRA
+ * @author figueroa
  */
 @Entity
 @Table(name = "vehiculo")
@@ -50,7 +42,7 @@ public class Vehiculo implements Serializable {
     @Column(name = "comentarios")
     private String comentarios;
     @OneToMany(mappedBy = "idVehiculo")
-    private Collection<Entrega> entregaCollection;
+    private List<Entrega> entregaList;
 
     public Vehiculo() {
     }
@@ -107,12 +99,12 @@ public class Vehiculo implements Serializable {
         this.comentarios = comentarios;
     }
 
-    public Collection<Entrega> getEntregaCollection() {
-        return entregaCollection;
+    public List<Entrega> getEntregaList() {
+        return entregaList;
     }
 
-    public void setEntregaCollection(Collection<Entrega> entregaCollection) {
-        this.entregaCollection = entregaCollection;
+    public void setEntregaList(List<Entrega> entregaList) {
+        this.entregaList = entregaList;
     }
 
     @Override
@@ -137,7 +129,7 @@ public class Vehiculo implements Serializable {
 
     @Override
     public String toString() {
-        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.resources.Vehiculo[ idVehiculo=" + idVehiculo + " ]";
+        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.Vehiculo[ idVehiculo=" + idVehiculo + " ]";
     }
     
 }

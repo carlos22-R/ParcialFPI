@@ -5,22 +5,13 @@
 package tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity;
 
 import java.io.Serializable;
-import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import java.util.List;
+
+import jakarta.persistence.*;
 
 /**
  *
- * @author CENTRA
+ * @author figueroa
  */
 @Entity
 @Table(name = "comercio")
@@ -45,11 +36,11 @@ public class Comercio implements Serializable {
     @Column(name = "descripcion")
     private String descripcion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "comercio")
-    private Collection<ComercioTipoComercio> comercioTipoComercioCollection;
+    private List<ComercioTipoComercio> comercioTipoComercioList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "comercio")
-    private Collection<ProductoComercio> productoComercioCollection;
+    private List<ProductoComercio> productoComercioList;
     @OneToMany(mappedBy = "idComercio")
-    private Collection<Sucursal> sucursalCollection;
+    private List<Sucursal> sucursalList;
 
     public Comercio() {
     }
@@ -90,28 +81,28 @@ public class Comercio implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public Collection<ComercioTipoComercio> getComercioTipoComercioCollection() {
-        return comercioTipoComercioCollection;
+    public List<ComercioTipoComercio> getComercioTipoComercioList() {
+        return comercioTipoComercioList;
     }
 
-    public void setComercioTipoComercioCollection(Collection<ComercioTipoComercio> comercioTipoComercioCollection) {
-        this.comercioTipoComercioCollection = comercioTipoComercioCollection;
+    public void setComercioTipoComercioList(List<ComercioTipoComercio> comercioTipoComercioList) {
+        this.comercioTipoComercioList = comercioTipoComercioList;
     }
 
-    public Collection<ProductoComercio> getProductoComercioCollection() {
-        return productoComercioCollection;
+    public List<ProductoComercio> getProductoComercioList() {
+        return productoComercioList;
     }
 
-    public void setProductoComercioCollection(Collection<ProductoComercio> productoComercioCollection) {
-        this.productoComercioCollection = productoComercioCollection;
+    public void setProductoComercioList(List<ProductoComercio> productoComercioList) {
+        this.productoComercioList = productoComercioList;
     }
 
-    public Collection<Sucursal> getSucursalCollection() {
-        return sucursalCollection;
+    public List<Sucursal> getSucursalList() {
+        return sucursalList;
     }
 
-    public void setSucursalCollection(Collection<Sucursal> sucursalCollection) {
-        this.sucursalCollection = sucursalCollection;
+    public void setSucursalList(List<Sucursal> sucursalList) {
+        this.sucursalList = sucursalList;
     }
 
     @Override
@@ -136,7 +127,7 @@ public class Comercio implements Serializable {
 
     @Override
     public String toString() {
-        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.resources.Comercio[ idComercio=" + idComercio + " ]";
+        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.Comercio[ idComercio=" + idComercio + " ]";
     }
     
 }

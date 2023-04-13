@@ -6,20 +6,12 @@ package tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
+import jakarta.persistence.*;
 
 /**
  *
- * @author CENTRA
+ * @author figueroa
  */
 @Entity
 @Table(name = "comercio_tipo_comercio")
@@ -28,7 +20,8 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "ComercioTipoComercio.findByIdComercio", query = "SELECT c FROM ComercioTipoComercio c WHERE c.comercioTipoComercioPK.idComercio = :idComercio"),
     @NamedQuery(name = "ComercioTipoComercio.findByIdTipoComercio", query = "SELECT c FROM ComercioTipoComercio c WHERE c.comercioTipoComercioPK.idTipoComercio = :idTipoComercio"),
     @NamedQuery(name = "ComercioTipoComercio.findByActivo", query = "SELECT c FROM ComercioTipoComercio c WHERE c.activo = :activo"),
-    @NamedQuery(name = "ComercioTipoComercio.findByFechaCreacion", query = "SELECT c FROM ComercioTipoComercio c WHERE c.fechaCreacion = :fechaCreacion")})
+    @NamedQuery(name = "ComercioTipoComercio.findByFechaCreacion", query = "SELECT c FROM ComercioTipoComercio c WHERE c.fechaCreacion = :fechaCreacion"), 
+    @NamedQuery(name = "ComercioTipoComercio.countByIdPersona", query = "SELECT count(d.comercioTipoComercioPK) FROM ComercioTipoComercio d WHERE d.comercioTipoComercioPK.idComercio = :idComercio")})
 public class ComercioTipoComercio implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -119,7 +112,7 @@ public class ComercioTipoComercio implements Serializable {
 
     @Override
     public String toString() {
-        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.resources.ComercioTipoComercio[ comercioTipoComercioPK=" + comercioTipoComercioPK + " ]";
+        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.ComercioTipoComercio[ comercioTipoComercioPK=" + comercioTipoComercioPK + " ]";
     }
     
 }

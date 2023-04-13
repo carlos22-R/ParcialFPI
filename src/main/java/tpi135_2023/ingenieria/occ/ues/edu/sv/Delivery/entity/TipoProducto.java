@@ -5,24 +5,13 @@
 package tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity;
 
 import java.io.Serializable;
-import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import java.util.List;
+
+import jakarta.persistence.*;
 
 /**
  *
- * @author CENTRA
+ * @author figueroa
  */
 @Entity
 @Table(name = "tipo_producto")
@@ -47,14 +36,14 @@ public class TipoProducto implements Serializable {
     @Column(name = "comentarios")
     private String comentarios;
     @OneToMany(mappedBy = "idTipoProductoPadre")
-    private Collection<TipoProducto> tipoProductoCollection;
+    private List<TipoProducto> tipoProductoList;
     @JoinColumn(name = "id_tipo_producto_padre", referencedColumnName = "id_tipo_producto")
     @ManyToOne
     private TipoProducto idTipoProductoPadre;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoProducto")
-    private Collection<TipoProductoTipoComercio> tipoProductoTipoComercioCollection;
+    private List<TipoProductoTipoComercio> tipoProductoTipoComercioList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoProducto")
-    private Collection<ProductoTipoProducto> productoTipoProductoCollection;
+    private List<ProductoTipoProducto> productoTipoProductoList;
 
     public TipoProducto() {
     }
@@ -95,12 +84,12 @@ public class TipoProducto implements Serializable {
         this.comentarios = comentarios;
     }
 
-    public Collection<TipoProducto> getTipoProductoCollection() {
-        return tipoProductoCollection;
+    public List<TipoProducto> getTipoProductoList() {
+        return tipoProductoList;
     }
 
-    public void setTipoProductoCollection(Collection<TipoProducto> tipoProductoCollection) {
-        this.tipoProductoCollection = tipoProductoCollection;
+    public void setTipoProductoList(List<TipoProducto> tipoProductoList) {
+        this.tipoProductoList = tipoProductoList;
     }
 
     public TipoProducto getIdTipoProductoPadre() {
@@ -111,20 +100,20 @@ public class TipoProducto implements Serializable {
         this.idTipoProductoPadre = idTipoProductoPadre;
     }
 
-    public Collection<TipoProductoTipoComercio> getTipoProductoTipoComercioCollection() {
-        return tipoProductoTipoComercioCollection;
+    public List<TipoProductoTipoComercio> getTipoProductoTipoComercioList() {
+        return tipoProductoTipoComercioList;
     }
 
-    public void setTipoProductoTipoComercioCollection(Collection<TipoProductoTipoComercio> tipoProductoTipoComercioCollection) {
-        this.tipoProductoTipoComercioCollection = tipoProductoTipoComercioCollection;
+    public void setTipoProductoTipoComercioList(List<TipoProductoTipoComercio> tipoProductoTipoComercioList) {
+        this.tipoProductoTipoComercioList = tipoProductoTipoComercioList;
     }
 
-    public Collection<ProductoTipoProducto> getProductoTipoProductoCollection() {
-        return productoTipoProductoCollection;
+    public List<ProductoTipoProducto> getProductoTipoProductoList() {
+        return productoTipoProductoList;
     }
 
-    public void setProductoTipoProductoCollection(Collection<ProductoTipoProducto> productoTipoProductoCollection) {
-        this.productoTipoProductoCollection = productoTipoProductoCollection;
+    public void setProductoTipoProductoList(List<ProductoTipoProducto> productoTipoProductoList) {
+        this.productoTipoProductoList = productoTipoProductoList;
     }
 
     @Override
@@ -149,7 +138,7 @@ public class TipoProducto implements Serializable {
 
     @Override
     public String toString() {
-        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.resources.TipoProducto[ idTipoProducto=" + idTipoProducto + " ]";
+        return "tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.TipoProducto[ idTipoProducto=" + idTipoProducto + " ]";
     }
     
 }
