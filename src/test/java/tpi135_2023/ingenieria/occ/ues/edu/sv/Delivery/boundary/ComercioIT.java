@@ -280,22 +280,22 @@ public class ComercioIT {
         respuestaSv = target.path("territorio").request(MediaType.APPLICATION_JSON)
                 .post(Entity.json(null));
         Assertions.assertEquals(400, respuestaSv.getStatus());
-//        //crear direccion
-//        Direccion direccion = new Direccion();
-//        direccion.setIdTerritorio(santaAna);
-//        direccion.setDireccion("Final 1a Av Nte y 1a C pte. No 32");
-//        direccion.setLatitud(BigDecimal.TEN);
-//        direccion.setLongitud(BigDecimal.ONE);
-//        direccion.setReferencias("50 mts. al sur del palo de mango");
-//        Response respuestaDireccion = target.path("direccion").request(MediaType.APPLICATION_JSON)
-//                .post(Entity.entity(direccion, MediaType.APPLICATION_JSON));
-//        Assertions.assertEquals(Response.Status.CREATED.getStatusCode(), respuestaDireccion.getStatus());
-//        Assertions.assertTrue(respuestaDireccion.getHeaders().containsKey("location"));
-//        direccion.setIdDireccion(Long.valueOf(respuestaDireccion.getHeaderString("location").split("direccion/")[1]));
-//        // excepciones direccion
-//        respuestaDireccion = target.path("direccion").request(MediaType.APPLICATION_JSON)
-//                .post(Entity.json(null));
-//        Assertions.assertEquals(400, respuestaDireccion.getStatus());
+        //crear direccion
+        Direccion direccion = new Direccion();
+        direccion.setIdTerritorio(santaAna);
+        direccion.setDireccion("Final 1a Av Nte y 1a C pte. No 32");
+        direccion.setLatitud(BigDecimal.TEN);
+        direccion.setLongitud(BigDecimal.ONE);
+        direccion.setReferencias("50 mts. al sur del palo de mango");
+        Response respuestaDireccion = target.path("direccion").request(MediaType.APPLICATION_JSON)
+                .post(Entity.entity(direccion, MediaType.APPLICATION_JSON));
+        Assertions.assertEquals(Response.Status.CREATED.getStatusCode(), respuestaDireccion.getStatus());
+        Assertions.assertTrue(respuestaDireccion.getHeaders().containsKey("location"));
+        direccion.setIdDireccion(Long.valueOf(respuestaDireccion.getHeaderString("location").split("direccion/")[1]));
+        // excepciones direccion
+        respuestaDireccion = target.path("direccion").request(MediaType.APPLICATION_JSON)
+                .post(Entity.json(null));
+        Assertions.assertEquals(400, respuestaDireccion.getStatus());
 //
 //        //asociar direccion a sucursal
 //        Sucursal s = new Sucursal();
