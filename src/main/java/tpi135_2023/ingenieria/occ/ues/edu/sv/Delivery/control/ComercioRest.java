@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.Comercio;
+import tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.Sucursal;
 
 /**
  *
@@ -94,6 +95,26 @@ public class ComercioRest {
         }
         return Response.status(Response.Status.BAD_REQUEST).header(RestResourcePattern.WRONG_PARAMETER, Collections.EMPTY_LIST).build();
         }
-
+        @POST
+        @Path("/{id}/sucursal")
+        public Response InsertarSucursal(@PathParam("id") long id, Sucursal sucursal, @Context UriInfo info){
+        long idn=id;
+        Comercio nuevo = new Comercio(idn);
+        Comercio encontrado = comerciobean.findcomercioById(nuevo);
+        if(encontrado!=null){
+            try {
+                comerciobean.InsertarSu(sucursal, idn);
+            if (sucursal.getIdSucursal()!= null){
+                UriBuilder uriBuilder=info.getAbsolutePathBuilder();
+                    uriBuilder.path(sucursal.getIdSucursal().toString());
+                    return Response.created(uriBuilder.build()).build();
+            }
+            } catch (Exception ex){
+                
+                Logger.getLogger(getClass().getName()).log(Level.SEVERE,ex.getMessage(),ex);
+            }
+        }
+        return Response.status(Response.Status.BAD_REQUEST).header(RestResourcePattern.WRONG_PARAMETER, Collections.EMPTY_LIST).build();
+        }
 }
 

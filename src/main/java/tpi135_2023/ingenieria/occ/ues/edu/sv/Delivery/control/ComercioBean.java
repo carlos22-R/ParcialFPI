@@ -9,6 +9,7 @@ import tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.Comercio;
 import java.util.List;
 import tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.ComercioTipoComercio;
 import tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.ComercioTipoComercioPK;
+import tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.Sucursal;
 
 @Stateless
 public class ComercioBean {
@@ -39,6 +40,12 @@ public class ComercioBean {
                ComercioTipoComercioPK newpk= new ComercioTipoComercioPK(idComercio, idTipocomercio);
                ComercioTipoComercio newT=  new ComercioTipoComercio(newpk);
                em.persist(newT);
+        }
+        public void InsertarSu(Sucursal sucursal, long idComercio){
+            Comercio cn = new Comercio(idComercio);
+            Comercio encontradocn = findcomercioById(cn);
+            sucursal.setIdComercio(encontradocn);
+            em.persist(sucursal);
         }
 
 }
