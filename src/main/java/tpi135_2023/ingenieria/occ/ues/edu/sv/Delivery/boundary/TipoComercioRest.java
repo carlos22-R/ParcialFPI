@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.control;
+package tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.boundary;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
@@ -17,6 +17,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.control.RestResourcePattern;
+import tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.control.TipoComercioBean;
 
 import tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity.TipoComercio;
 
