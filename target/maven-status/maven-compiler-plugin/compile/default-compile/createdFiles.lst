@@ -25,8 +25,8 @@ tpi135_2023/ingenieria/occ/ues/edu/sv/Delivery/entity/Vehiculo.class
 tpi135_2023/ingenieria/occ/ues/edu/sv/Delivery/entity/Entrega.class
 tpi135_2023/ingenieria/occ/ues/edu/sv/Delivery/entity/Comercio.class
 tpi135_2023/ingenieria/occ/ues/edu/sv/Delivery/entity/TipoProductoTipoComercio.class
-tpi135_2023/ingenieria/occ/ues/edu/sv/Delivery/entity/TipoProducto.class
 tpi135_2023/ingenieria/occ/ues/edu/sv/Delivery/entity/ComercioTipoComercio.class
+tpi135_2023/ingenieria/occ/ues/edu/sv/Delivery/entity/TipoProducto.class
 tpi135_2023/ingenieria/occ/ues/edu/sv/Delivery/control/TipoComercioBean.class
 tpi135_2023/ingenieria/occ/ues/edu/sv/Delivery/boundary/ComercioRest.class
 tpi135_2023/ingenieria/occ/ues/edu/sv/Delivery/entity/Producto.class
