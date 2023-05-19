@@ -4,6 +4,7 @@
  */
 package tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity;
 
+import jakarta.json.bind.annotation.JsonbTransient;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.List;
@@ -39,6 +40,7 @@ public class Sucursal implements Serializable {
     private BigInteger idDireccion;
     @JoinColumn(name = "id_comercio", referencedColumnName = "id_comercio")
     @ManyToOne
+    @JsonbTransient 
     private Comercio idComercio;
     @OneToMany(mappedBy = "idSucursal")
     private List<Orden> ordenList;

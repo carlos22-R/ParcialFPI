@@ -4,6 +4,7 @@
  */
 package tpi135_2023.ingenieria.occ.ues.edu.sv.Delivery.entity;
 
+import jakarta.json.bind.annotation.JsonbTransient;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -34,9 +35,11 @@ public class ComercioTipoComercio implements Serializable {
     private Date fechaCreacion;
     @JoinColumn(name = "id_comercio", referencedColumnName = "id_comercio", insertable = false, updatable = false)
     @ManyToOne(optional = false)
+    @JsonbTransient 
     private Comercio comercio;
     @JoinColumn(name = "id_tipo_comercio", referencedColumnName = "id_tipo_comercio", insertable = false, updatable = false)
     @ManyToOne(optional = false)
+    @JsonbTransient 
     private TipoComercio tipoComercio;
 
     public ComercioTipoComercio() {
