@@ -39,7 +39,7 @@ public class ComercioTipoComercio implements Serializable {
     private Comercio comercio;
     @JoinColumn(name = "id_tipo_comercio", referencedColumnName = "id_tipo_comercio", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    @JsonbTransient 
+    
     private TipoComercio tipoComercio;
 
     public ComercioTipoComercio() {
