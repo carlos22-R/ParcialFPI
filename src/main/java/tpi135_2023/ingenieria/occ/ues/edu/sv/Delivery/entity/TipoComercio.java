@@ -37,7 +37,7 @@ public class TipoComercio implements Serializable {
     @Column(name = "comentarios")
     private String comentarios;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoComercio")
-    @JsonbTransient 
+
     private List<ComercioTipoComercio> comercioTipoComercioList;
     @OneToMany(mappedBy = "idTipoComercioPadre")
     private List<TipoComercio> tipoComercioList;
